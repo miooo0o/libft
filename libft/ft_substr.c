@@ -20,17 +20,6 @@ static int	check_len(char const *s, unsigned int start, size_t len)
 		return (len);
 }
 
-static char	*give_null(void)
-{
-	char	*str;
-
-	str = malloc(sizeof(char));
-	if (str == 0)
-		return (NULL);
-	str[0] = '\0';
-	return (str);
-}
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	unsigned int	i;
@@ -41,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ni = 0;
 	len = check_len(s, start, len);
 	if (ft_strlen(s) < start)
-		return (give_null());
+		return (ft_strdup("");
 	str = malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
